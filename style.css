@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #020c34; /* Set this to match the logo's background color */
+    color: rgb(244, 243, 243);
+}
+
+/* header h1 {
+    color: rgb(186, 153, 42);
+    font-size: 2em;
+    margin-top: 50px;
+} */
+
+.logo-container img {
+    transition: transform 0.3s ease;
+    border-radius: 30px;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.search-results{
+    text-align: center;
+}
+
+.my-4{
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Ultra', serif;
+
+}
+
+.search-results{
+    padding-top: 40px;
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Ultra', serif;
+}
+
+.logo-container{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.logo-container img{
+    width: 400px;
+    height: auto;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#search-box {
+    padding: 30px;
+    font-size: 1em;
+    /* border: 1px solid #ddd; */
+    border-radius: 5px 0 0 5px; 
+    margin-bottom: 0;
+    width: 20%;
+    padding: 10px;
+    font-size: 1em;
+
+}
+
+#search-button{
+    padding: 10px 20px;
+    font-size: 1em;
+    /* border: 1px solid #ddd; */
+    /* background-color: #f0f0f0;  */
+    border-radius: 0 5px 5px 0; 
+    cursor: pointer;
+}
+
