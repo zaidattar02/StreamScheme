@@ -26,11 +26,57 @@ body {
     text-align: center;
 }
 
+.details-content {
+    margin-top: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style for the plot overview */
+  .details-content p {
+    padding-top: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    font-style: italic;
+    /* text-align: justify; */
+  }
+  
+  /* Style for the IMDb rating */
+  .details-content .rating {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Adjust the image styling to create space around it */
+  .details-content img {
+   /* adjust as needed */
+   max-width: 400px; /* Adjust this value to the desired width */
+   height: auto; /* This will maintain the aspect ratio */
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   transition: transform 0.3s ease;
+  }
+  
+  .details-content img:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+  
+  /* Clear fix to handle floated images */
+  .result-item:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
 .my-4{
     font-family: 'Roboto Slab', serif;
     font-family: 'Ultra', serif;
 
 }
+
+
 
 .search-results{
     padding-top: 40px;
