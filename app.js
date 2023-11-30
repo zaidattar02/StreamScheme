@@ -18,9 +18,8 @@ function performSearch() {
         resultsContainer.innerHTML = ''; // Clear previous results
         data.title_results.forEach(title => {
           const titleDiv = document.createElement('div');
-          titleDiv.classList.add('result-item'); // Add a class for styling if needed
-  
-          // Assume we have the details data directly in the title object (this may require a separate fetch call per title)
+          titleDiv.classList.add('result-item'); 
+
           titleDiv.innerHTML = `
             <h3>${title.name}</h3>
             <p>Type: ${title.type}</p>
@@ -49,15 +48,32 @@ function performSearch() {
       
       if (detailsContentDiv.innerHTML === '') {
         // Details haven't been fetched yet
-        const titleDetailsUrl = `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=Qy9ey3Mff5Cc8riipG4NS05mwjVFZqiNPQPcOPf2`;
+        const titleDetailsUrl = `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=Qy9ey3Mff5Cc8riipG4NS05mwjVFZqiNPQPcOPf2&append_to_response=sources`;
         
         fetch(titleDetailsUrl)
           .then(response => response.json())
           .then(detailsData => {
+            let sourcesListHTML = '';
+            let sourcesSet = new Set();
+            
+
+            if(detailsData.sources && detailsData.sources.length > 0){
+                sourcesListHTML = '<ul class = "sources">'
+                detailsData.sources.forEach(source => {
+                    sourcesSet.add(`${source.name} (${source.type})`)
+                });
+
+                sourcesListHTML += Array.from(sourcesSet).map(name => `<li>${name}</li>`).join('');
+                sourcesListHTML += '</ul>';
+            }
+
             detailsContentDiv.innerHTML = `
               <img src="${detailsData.poster}" alt="${detailsData.title} Poster" />
+              <p> Genre: ${detailsData.genre_names}</p>
               <p>Plot Overview: ${detailsData.plot_overview}</p>
               <p>IMDb Rating: ${detailsData.user_rating}</p>
+              <b> <p> Where to watch: </p> </b>
+              ${sourcesListHTML}
             `;
             detailsContentDiv.style.display = 'block';
           })
