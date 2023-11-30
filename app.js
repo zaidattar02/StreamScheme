@@ -54,16 +54,21 @@ function performSearch() {
           .then(response => response.json())
           .then(detailsData => {
             let sourcesListHTML = '';
-            let sourcesSet = new Set();
+            // let sourcesSet = new Set();
+            let uniqueSources = [];
             
-
-            if(detailsData.sources && detailsData.sources.length > 0){
-                sourcesListHTML = '<ul class = "sources">'
+            if(detailsData.sources && detailsData.sources.length > 0) {
+                sourcesListHTML = '<ul class="sources">';
+                
                 detailsData.sources.forEach(source => {
-                    sourcesSet.add(`${source.name} (${source.type})`)
+                    let sourceIdentifier = `${source.name} (${source.type}) <a href="${source.web_url}" target="_blank">link</a>`; // Create a unique identifier for each source
+                    if (!uniqueSources.includes(sourceIdentifier)) {
+                        uniqueSources.push(sourceIdentifier); // Add to the array if not already present
+                    }
                 });
-
-                sourcesListHTML += Array.from(sourcesSet).map(name => `<li>${name}</li>`).join('');
+            
+                // Map over the uniqueSources array to create list items
+                sourcesListHTML += uniqueSources.map(name => `<li>${name}</li>`).join('');
                 sourcesListHTML += '</ul>';
             }
 
