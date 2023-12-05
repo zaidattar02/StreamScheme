@@ -16,6 +16,7 @@ This project is a streaming services aggregator that helps users find where to w
 - HTML
 - CSS
 - JavaScript
+- Node.js
 - RESTful API
 - Bootstrap framework for responsive design
 
