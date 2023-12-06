@@ -61,7 +61,7 @@ function performSearch() {
                 sourcesListHTML = '<ul class="sources">';
                 
                 detailsData.sources.forEach(source => {
-                    let sourceIdentifier = `${source.name} (${source.type}) <a href="${source.web_url}" target="_blank">link</a>`; // Create a unique identifier for each source
+                    let sourceIdentifier = `<a href="${source.web_url}" target="_blank">${source.name}</a> (${source.type}) `; // Create a unique identifier for each source
                     if (!uniqueSources.includes(sourceIdentifier)) {
                         uniqueSources.push(sourceIdentifier); // Add to the array if not already present
                     }
