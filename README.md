@@ -24,6 +24,8 @@ This project is a streaming services aggregator that helps users find where to w
 
 1. Clone the repository to your local machine.
 2. Open the `index.html` file in a web browser to use the application.
+3. Due to browser security restrictions on local files, the app may not work as expected when opening `index.html` directly in a web browser.
+4. To fully experience the Streaming Services Aggregator, use a local development server like the Live Server extension in Visual Studio Code.
 
 ## Usage
 
